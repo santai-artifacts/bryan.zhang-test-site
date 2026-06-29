@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backgammon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Backgammon</h1>
+  <div class="subtitle">White (you) vs. Black (CPU) · race your checkers home and bear them off</div>
+
+  <div class="status">
+    <span class="turn-dot white" id="turnDot"></span>
+    <span class="msg" id="statusMsg">Press “Roll Dice” to begin</span>
+  </div>
+
+  <div class="board-wrap">
+    <div class="board" id="board">
+      <div class="quad top" id="q-top-left"></div>
+      <div class="bar" id="bar">
+        <div class="bar-label">B A R</div>
+        <div class="bar-zone" id="bar-black" data-bar="black"></div>
+        <div class="bar-zone" id="bar-white" data-bar="white"></div>
+      </div>
+      <div class="quad top" id="q-top-right"></div>
+      <div class="off" id="off">
+        <div class="off-zone" id="off-black" data-off="black">
+          <span class="off-count" id="off-black-count">0</span>
+          <span class="off-cap">Black off</span>
+        </div>
+        <div class="off-zone" id="off-white" data-off="white">
+          <span class="off-count" id="off-white-count">0</span>
+          <span class="off-cap">White off</span>
+        </div>
+      </div>
+      <div class="quad bottom" id="q-bot-left"></div>
+      <div class="quad bottom" id="q-bot-right"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="dice" id="dice"></div>
+    <div class="panel">
+      <button id="rollBtn">🎲 Roll Dice</button>
+      <button id="undoBtn" class="ghost" disabled>↶ Undo</button>
+      <button id="doneBtn" class="ghost" disabled>Done</button>
+      <button id="newBtn" class="ghost">New Game</button>
+    </div>
+  </div>
+
+  <div class="pip-count">
+    <span>White pip count: <b id="pipWhite">167</b></span>
+    <span>Black pip count: <b id="pipBlack">167</b></span>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="overlay" id="overlay">
+    <div class="card">
+      <h2 id="winTitle">White wins!</h2>
+      <p id="winSub">A clean race to the finish.</p>
+      <button onclick="newGame()">Play Again</button>
+    </div>
+  </div>
+
+  <!-- Scripts share one global scope; order matters: engine → render → game -->
+  <script src="js/engine.js" defer></script>
+  <script src="js/render.js" defer></script>
+  <script src="js/game.js" defer></script>
+</body>
+</html>

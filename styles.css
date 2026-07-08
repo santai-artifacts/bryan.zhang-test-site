@@ -119,8 +119,8 @@ h1{
   color:#c9b48a;
 }
 .checker.count{font-size:.78rem}
-.point.src-hl .stack .checker:last-child{transform:scale(1.08);position:relative}
-.point.src-hl .stack .checker:last-child::after{content:"";position:absolute;width:28%;aspect-ratio:1;border-radius:50%;background:rgba(0,0,0,.35);top:50%;left:50%;transform:translate(-50%,-50%)}
+.point.src-hl .stack .checker:last-child{transform:scale(1.08);position:relative;overflow:visible}
+.point.src-hl .stack .checker:last-child::after{content:"";position:absolute;width:30%;aspect-ratio:1;border-radius:50%;background:var(--accent);box-shadow:0 0 0 1.5px rgba(0,0,0,.4);top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;pointer-events:none}
 
 /* Bar */
 .bar{
